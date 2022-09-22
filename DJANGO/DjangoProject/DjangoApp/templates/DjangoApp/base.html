@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'DjangoApp/css/style.css' %}">
+
+      <link rel="stylesheet" type="text/css" href="{% static 'DjangoApp/css/style.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'DjangoApp/bootstrap/css/bootstrap.min.css' %}">
+
+</head>
+<body>
+   
+  
+
+    <nav>
+
+        <ul>
+            {% if user.is_authenticated %}
+            <li><a href="" style="color:red;">Welcome {{user.username}}</a></li>
+            
+            <li><a href="{% url 'homepage' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="">Contact Us</a></li>
+            {% if user.is_superuser %}
+            <li><a href="{% url 'add_product' %}">Add Product</a></li>
+            {% endif %}
+            
+            <li><a href="{% url 'user_logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'user_login' %}">Login</a></li>
+            <li><a href="{% url 'user_register' %}">Register</a></li>
+            {% endif %}
+           
+        </ul>
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+  
+    <link rel="stylesheet" type="text/css" href="{% static 'DjangoApp/bootstrap/js/bootstrap.min.js' %}">
+
+
+</body>
+</html>

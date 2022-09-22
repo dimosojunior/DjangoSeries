@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+			body{
+				background-color: rgb(5,5,49);
+				color: white;
+			}
+		input{
+			width: 60%;
+			padding: 10px;
+			border-radius: 10px;
+			border-top-right-radius: 0px;
+			border: 1px solid blue;
+			margin-bottom: 40px;
+		}
+		input[type="submit"]{
+			width: 20%;
+			padding: 10px;
+			border-radius: 10px;
+			border-top-right-radius: 0px;
+			border: 1px solid black;
+			background-color: blue;
+			color: white;
+			margin-top: 10px;
+
+
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+
+		<center><h1>USER REGISTRATION FORM</h1></center>
+
+<form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          {{form.username.label}}: 
+          {{form.username}}<br>
+
+          {{form.email.label}}: 
+          {{form.email}}<br>
+
+         
+
+           {{form.password1.label}}: 
+          {{form.password1}}<br>
+
+           {{form.password2.label}}: 
+          {{form.password2}}<br>
+
+<center>
+  <input type="submit" value="Register" name="">
+  </center>
+
+ </form>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'DjangoApp/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<center>
+    <h1>About Page</h1>
+
+</center>
+
+<a href="/">Go to Home Page</a><br>
+
+<a href="{% url 'homepage' %}">Go to Home Page link 2</a>
+
+
+</body>
+</html>
+{% endblock %}

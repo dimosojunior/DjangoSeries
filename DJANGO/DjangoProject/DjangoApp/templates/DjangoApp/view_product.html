@@ -1,0 +1,167 @@
+{% extends 'DjangoApp/base.html' %}
+
+{% load static %}
+{% block title %}View Product{% endblock %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <style type="text/css">
+    .card{
+      width: 100%;
+      transition-property: all;
+      transition-duration: 1s;
+      transition-delay: .5s;
+      transition-timing-function: ease-in;
+    }
+    .card:hover{
+      width: 90%;
+      margin-left: 25px;
+
+    }
+    h2{
+      font-family: 'poppins', sans-serif;
+      font-size: 18px;
+      color: black;
+    }
+    
+  </style>
+</head>
+<body>
+
+<div class="container-fluid" style="margin-top: 5px;">
+
+
+
+
+
+<div class="row" style="margin-bottom: 1cm;">
+
+{% if products %}
+
+  <div class="col-md-4" style="margin-top: 15px;"><!---mwanzo wa column--->
+
+
+
+<!---mwanzo wa card--->
+<div class="card text-center" style="border: 2px solid black;border-radius: 15px;">
+  <div class="card-header" style="background-color: rgb(5,5,49);color: white;padding: 10px;font-size: 20px;border-radius: 10px;">
+    {{products.criminals.name}}
+  </div>
+  <div class="card-body">
+{% if products.image %}
+    <center>
+      <img src="{{products.image.url}}"  class="rounded-circle" style="width: 80%;height: 6cm;">
+    </center>
+
+{% else %}
+
+  <center><h1 style="color: black;font-size: 22px;font-weight: bold;">NO PRODUCT IMAGE</h1></center>
+  {% endif %}
+
+ 
+
+      <div style="margin-top: 1cm;">
+    <a href="{% url 'update_product' products.id %}" class="btn btn-primary" style="margin-right: 10px; margin-bottom: 15px;font-size: 18px;width: 30%;padding: 10px; border-radius: 10px;border-bottom-right-radius: 0px;">Update</a>
+
+    <a href="{% url 'delete_product' products.id %}" class="btn btn-danger" style="margin-bottom: 15px;font-size: 18px;width: 30%;padding: 10px; border-radius: 10px;border-bottom-right-radius: 0px;">Delete</a>
+    </div>
+
+ 
+
+
+
+
+
+  </div>
+  
+</div>
+
+
+<!---mwisho wa card---->
+    
+  </div><!--mwisho wa column --->
+
+
+
+
+<div class="col-md-8" style="margin-bottom: 1cm;"><!--mwanzo wa column --->
+
+
+  <p>
+    <h2><span style="color: blue;font-weight: bold;">Product Name</span>: {{products.name}}</h2>
+    <h2><span style="color: blue;font-weight: bold;">Product Price</span>: {{products.price}}</h2>
+    {% if products.brand %}
+    <h2><span style="color: blue;font-weight: bold;">Brand</span>: {{products.brand}}</h2>
+    {% endif %}
+
+   
+    <h2><span style="color: blue;font-weight: bold;">Posted Date</span>: {{products.post_date}}</h2>
+
+
+
+
+<h1>Desscription</h1>
+{{products.description|safe}}<br>
+
+<div>
+
+   <a href="" class="btn btn-primary" style="margin-right: 10px; margin-bottom: 15px;font-size: 18px;width: 30%;padding: 10px; border-radius: 10px;border-bottom-right-radius: 0px;">Add To Cart/ Make Order</a>
+
+</div>
+
+
+
+  </p>
+  
+
+</div><!--mwisho wa column --->
+
+
+
+
+
+
+
+
+
+
+  {% else %}
+
+  <center><h2 style="color: black;">No Any products</h2></center>
+
+  {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+</div><!---mwisho wa row---->
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+</body>
+</html>
+
+
+{% endblock %}
